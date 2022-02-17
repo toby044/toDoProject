@@ -27,7 +27,7 @@ color: <?php echo $grey; ?>;
 }
 
 a, h2 {
-color: <?php echo $white; ?>
+color: <?php echo $white; ?>;
 }
 
 a {
@@ -53,7 +53,7 @@ margin: 0;
 aside {
 width: 20%;
 height:100%;
-background-color: <?php echo $bg_aside ?>;
+background-color: <?php echo $bg_aside; ?>;
 margin:0;
 padding:5% 5% 5% 3.5%;
 display:flex;
@@ -67,10 +67,94 @@ flex-direction: column;
 }
 
 main {
-  background-color: <?php echo $bg_main ?>;
+  background-color: <?php echo $bg_main; ?>;
   width:80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
   display:flex;
+}
+
+.main-container {
+  max-width: 80%;
+  background-color: <?php echo $white; ?>;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+/** To Do styling */
+.todo-section {
+
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+.todo-header {
+  color: <?php echo $grey; ?>;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.todo-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 21px;
+  user-select: none;
+}
+.todo-checkbox-container input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.todo-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 8px;
+  border: 2px solid <?php echo $grey; ?>;
+}
+
+.todo-checkbox-container:hover input ~ .todo-checkmark {
+  border: 2px solid black;
+}
+
+.todo-checkbox-container input:checked ~ .todo-checkmark {
+  background-color: #eee;
+}
+
+.todo-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.todo-checkbox-container input:checked ~ .todo-checkmark:after {
+  display: block;
+}
+
+.todo-checkbox-container .todo-checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid <?php echo $grey; ?>;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
