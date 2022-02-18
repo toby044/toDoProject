@@ -1,9 +1,9 @@
 <div class="todo-section">
-  <div class="todo-item">
+  <div class="todo-item b-radius">
     <div class="wrapper">
       <label class="todo-checkbox-container">
         <input type="checkbox">
-        <span class="todo-checkmark"></span>
+        <span class="todo-checkmark b-radius"></span>
       </label>
       <h2 class="todo-header">Her er en todo</h2>
     </div>

@@ -1,49 +1,53 @@
-<?php
-header("Content-type: text/css; charset: UTF-8");
+:root {
+  --grey: #5b5b5b;
+  --white: #ffffff;
+  --bg-aside: #84cada;
+  --bg-main: #5495a4;
+}
 
-$grey = '#5b5b5b';
-$white = '#ffffff';
-$bg_aside = '#84CADA';
-$bg_main = '#5495A4';
-?>
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-body, html {
-margin: 0;
-padding: 0;
-height:100%;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 * {
-box-sizing:border-box;
-font-family: 'Roboto', sans-serif;
-list-style-type: none;
-text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 p {
-color: <?php echo $grey; ?>;
+  color: var(--grey);
 }
 
-a, h2 {
-color: <?php echo $white; ?>;
+a,
+h2 {
+  color: var(--white);
 }
 
 a {
-font-size: 1em;
-padding-top: 5%;
-font-weight: normal;
+  font-size: 1em;
+  padding-top: 5%;
+  font-weight: normal;
 }
 
 a:active {
-font-weight: bold;
-font-size:1.1em;
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
 h2 {
-font-size: 2.3em;
-margin: 0;
+  font-size: 2.3em;
+  margin: 0;
+}
+
+.b-radius {
+  border-radius: 8px;
 }
 
 .logoutBtn {
@@ -51,52 +55,52 @@ margin: 0;
 }
 
 aside {
-width: 20%;
-height:100%;
-background-color: <?php echo $bg_aside; ?>;
-margin:0;
-padding:5% 5% 5% 3.5%;
-display:flex;
-justify-content: space-between;
-flex-direction: column;
+  width: 20%;
+  height: 100%;
+  background-color: var(--bg-aside);
+  margin: 0;
+  padding: 5% 5% 5% 3.5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .flex-down {
-display:flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  background-color: <?php echo $bg_main; ?>;
-  width:80%;
+  background-color: var(--bg-main);
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 body {
-  display:flex;
+  display: flex;
 }
 
 .main-container {
   max-width: 80%;
-  background-color: <?php echo $white; ?>;
-  border-radius: 10px;
+  background-color: var(--white);
   padding: 2rem;
 }
 
 /** To Do styling */
 .todo-section {
-
 }
 
 .todo-item {
   display: flex;
   align-items: center;
   gap: 5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--grey);
 }
 .todo-header {
-  color: <?php echo $grey; ?>;
+  color: var(--grey);
 }
 
 .wrapper {
@@ -108,7 +112,7 @@ body {
 .todo-checkbox-container {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 10px;
   cursor: pointer;
   font-size: 21px;
   user-select: none;
@@ -127,8 +131,7 @@ body {
   height: 25px;
   width: 25px;
   background-color: #eee;
-  border-radius: 8px;
-  border: 2px solid <?php echo $grey; ?>;
+  border: 2px solid var(--grey);
 }
 
 .todo-checkbox-container:hover input ~ .todo-checkmark {
@@ -154,7 +157,7 @@ body {
   top: 3px;
   width: 5px;
   height: 10px;
-  border: solid <?php echo $grey; ?>;
+  border: solid var(--grey);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
