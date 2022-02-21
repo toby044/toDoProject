@@ -1,5 +1,9 @@
 <?php
 require 'db_conn.php';
+$sql = "SELECT * FROM todos ORDER BY id DESC";
+
+$result = $conn->query($sql);
+
 ?>
 
 <div class="todo-add-section">

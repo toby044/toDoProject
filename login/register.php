@@ -1,7 +1,7 @@
 <?php 
 
     // Database forbindelse
-    include('db.php');
+    include('../db_conn.php');
 
     if(!empty($_POST['submit'])){
         echo 'yo';

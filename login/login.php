@@ -1,5 +1,5 @@
 <?php
-    include('db.php');
+include('../db_conn.php');
 
     // Query
     $sql = 'SELECT * FROM users';

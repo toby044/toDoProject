@@ -1,6 +1,6 @@
 <?php 
 
-include('db.php');
+include('../db_conn.php');
 
 // Query statement
 $sql = 'SELECT * FROM users';
