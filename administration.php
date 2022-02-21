@@ -26,7 +26,7 @@ mysqli_close($conn);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' href='css/style.css' />
-    <script src="https://kit.fontawesome.com/71b85ed9fc.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6f6a2b9d07.js" crossorigin="anonymous"></script>
     <title>Todo</title>
 </head>
 
@@ -57,10 +57,8 @@ mysqli_close($conn);
                         </div>
                     </div>
                     <form class="flexEnd" method="post" style="width: 50%;">
-                        <input name="accepted" type="submit">
-                            <i class="fa fa-regular fa-circle-check"></i> 
-                        </input>
-                        <input name="notAccepted" class="notAccepted" type="submit"></input>
+                      <input name="notAccepted" class="notAccepted" type="submit"></input>
+                        <input name="accepted" class="accepted" type="submit"></input>
                     </form>
                 </div>
                 <hr>

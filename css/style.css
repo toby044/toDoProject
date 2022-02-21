@@ -293,23 +293,30 @@ h3 {
   margin: 0;
 }
 
+.accepted,
+.notAccepted {
+  max-width: 10px;
+}
+
 .accepted {
-  background: url(../images/accepted.png);
+  background: url(../images/accepted.svg);
+  background-size: 30px 30px;
   border: 0;
   background-size: contain;
   background-repeat: no-repeat;
   font-size: 0;
-  padding: 5%;
+  padding: 18px;
   cursor: pointer;
-  margin-right: 18px;
 }
 
 .notAccepted {
-  background: url(../images/not_accepted.png);
+  background: url(../images/not_accepted.svg);
+  background-size: 30px 30px;
   border: 0;
   background-size: contain;
   background-repeat: no-repeat;
   font-size: 0;
-  padding: 5%;
+  padding: 18px;
   cursor: pointer;
+  margin-right: 18px;
 }
