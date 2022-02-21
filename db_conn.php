@@ -1,7 +1,7 @@
 <?php
 
 $server = 'localhost';
-$database = 'test';
+$database = 'to_do_list';
 $username = 'root';
 $password = '';
 
