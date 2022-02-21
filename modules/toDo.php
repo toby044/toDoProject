@@ -50,6 +50,9 @@ require 'db_conn.php';
         </div>
         <div class="wrapper-inner-2">
           <p class="todo-descript checked"><?php echo $todo['descript']; ?></p>
+          <div class="todo-archive">
+            <i class="fa fa-solid fa-box-archive"></i>
+          </div>
         </div>
       </div>
       <?php } else { ?>
@@ -66,6 +69,9 @@ require 'db_conn.php';
         </div>
         <div class="wrapper-inner-2">
           <p class="todo-descript"><?php echo $todo['descript']; ?></p>
+          <div class="todo-archive">
+            <i class="fa fa-solid fa-box-archive"></i>
+          </div>
         </div>
       </div>
       <?php } ?>

@@ -150,7 +150,7 @@ body {
   gap: 5rem;
   padding: 1rem;
   border: 1px solid var(--grey);
-  height: 76px;
+  /* height: 76px; */
   overflow: hidden;
   transition: height 0.5s ease-in-out;
 }
@@ -169,8 +169,12 @@ body {
 }
 
 .wrapper-inner-2 {
-  margin: 0 6.3rem 0 3rem;
+  margin: 0 0 0 3rem;
   border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 1rem;
 }
 
 .todo-title {
@@ -178,8 +182,8 @@ body {
 }
 
 .todo-descript {
-  padding: 1rem 3rem 0 0;
-  margin: 0;
+  padding: 0rem 3rem 0 0;
+  margin-top: 0;
 }
 
 .todo-checkbox-container {
@@ -245,8 +249,12 @@ body {
   cursor: pointer;
 }
 
+.todo-archive {
+  padding: 0.3rem;
+}
+
 .dropdown-arrow i {
-  padding: 0.5rem;
+  padding: 0.2rem;
 }
 
 .checked {
