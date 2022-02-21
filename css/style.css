@@ -261,3 +261,44 @@ body {
   text-decoration: line-through;
   color: var(--light-grey) !important;
 }
+
+/*Sophies*/
+
+.flexStart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexEnd {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.accepted {
+  background: url(../images/accepted.png);
+  border: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 5%;
+  cursor: pointer;
+  margin-right:18px;
+}
+
+.notAccepted {
+  background: url(../images/not_accepted.png);
+  border: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 5%;
+  cursor: pointer;
+}
