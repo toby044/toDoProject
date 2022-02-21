@@ -9,7 +9,7 @@ require 'db_conn.php';
                 type="text" 
                 name="title" 
                 class="error"
-                placeholder="Fejl! Tomt felt!" />
+                placeholder="Feltet må ikke være tomt" />
     <input id="todo-input-description"
                 type="text" 
                 name="descript" 
