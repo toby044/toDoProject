@@ -9,8 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 body,
-html,
-textarea {
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -90,24 +89,23 @@ body {
 }
 
 .main-container {
-  width: 80% !important;
+  min-width: 80% !important;
   background-color: var(--white);
   padding: 2rem 4rem;
   margin: 2rem !important;
   box-shadow: 0px 5px 5px 0px var(--grey);
-  min-width: 870px;
 }
 
 /** To Do Add Styling */
 .todo-add-section {
-  padding: 1.5rem 0 0.5rem 1rem;
+  padding: 1.5rem 1.5rem 0.5rem 1rem;
   border-bottom: 2px solid var(--grey);
   margin-bottom: 2rem;
 }
 
 .todo-add-section form {
   display: grid;
-  grid-template-columns: 15rem 3fr 0.3fr;
+  grid-template-columns: 1fr 2.5rem;
   align-items: center;
 }
 
@@ -120,22 +118,12 @@ body {
   outline: none;
 }
 
-.todo-add-section input {
-}
-
 .todo-add-section button {
   cursor: pointer;
-  margin: 0 1rem;
 }
 
-#todo-input-text,
-#todo-input-description {
-  font-size: 1.5rem;
-  border-right: 1px solid black;
-}
-
-#todo-input-description {
-  padding-left: 1.5rem;
+#todo-input-text {
+  font-size: 30px;
 }
 
 /** To Dos styling */
@@ -148,42 +136,18 @@ body {
 .todo-item {
   align-items: center;
   gap: 5rem;
-  padding: 1rem;
+  padding: 1.5rem;
   border: 1px solid var(--grey);
-  /* height: 76px; */
-  overflow: hidden;
-  transition: height 0.5s ease-in-out;
 }
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.wrapper-inner {
-  display: grid;
-  grid-template-columns: 1rem 5fr 3fr 0.5fr;
-  align-items: center;
-  column-gap: 2rem;
-  margin-bottom: 1rem;
-}
-
-.wrapper-inner-2 {
-  margin: 0 0 0 3rem;
-  border-top: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-top: 1rem;
-}
-
 .todo-title {
   color: var(--grey);
 }
 
-.todo-descript {
-  padding: 0rem 3rem 0 0;
-  margin-top: 0;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1rem 5fr 3fr 0.5fr;
+  align-items: center;
+  gap: 2rem;
 }
 
 .todo-checkbox-container {
@@ -240,21 +204,16 @@ body {
 }
 
 .todo-date {
-  margin-top: 3px;
 }
 
 .dropdown-arrow {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   cursor: pointer;
 }
 
-.todo-archive {
-  padding: 0.3rem;
-}
-
 .dropdown-arrow i {
-  padding: 0.2rem;
+  padding: 0.5rem;
 }
 
 .checked {
@@ -262,7 +221,15 @@ body {
   color: var(--light-grey) !important;
 }
 
+.error {
+}
+
 /*Sophies*/
+
+h3 {
+  color: white; 
+  font-size: 1.5em;
+}
 
 .flexStart {
   display: flex;

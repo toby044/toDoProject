@@ -11,20 +11,24 @@
 </head>
 
 <body>
-    <?php include "./modules/header.php"; ?>
+        <aside>
+            <div class="flex-down">
+                <h2>To Do</h2>
+                <h3>Administrator</h3>
+            </div>
+            <a href="modules/logout.php" class="logoutBtn">Log ud</a>
+        </aside>
         <main>
             <div class="main-container b-radius">
-                <?php echo '<h1>Bruger anmodninger</h1>';?>
+                <h1>Bruger anmodninger</h1>
                 <div class="flexStart">
-                    <?php echo '<p style="width: 50%;" class="noMargin">NielsCool69</p>';?>
+                    <p style="width: 50%;" class="noMargin">NielsCool69</p>
                     <form class="flexEnd" method="post" style="width: 50%;">
-                        <?php 
-                        echo '<input name="accepted" class="accepted" type="submit"></input>';
-                        echo '<input name="notAccepted" class="notAccepted" type="submit"></input>';
-                        ?>
+                        <input name="accepted" class="accepted" type="submit"></input>
+                        <input name="notAccepted" class="notAccepted" type="submit"></input>
                     </form>
                 </div>
-                <?php echo '<hr>';?>
+                <hr>
                 <?php
                     if(array_key_exists('accepted', $_POST)) {
                         accepted();
