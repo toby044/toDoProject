@@ -1,3 +1,23 @@
+<?php 
+
+include('db_conn.php');
+
+// Query statement
+$sql = 'SELECT * FROM users';
+
+// Resultat af query
+$result = mysqli_query($conn, $sql);
+
+// Fetch resultater
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Frisæt resultat fra hukommelsen
+mysqli_free_result($result);
+
+// Luk forbindelse
+mysqli_close($conn);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +42,24 @@
             <div class="main-container b-radius">
                 <h1>Bruger anmodninger</h1>
                 <div class="flexStart">
-                    <p style="width: 50%;" class="noMargin">NielsCool69</p>
+                    <!--<p style="width: 50%;" class="noMargin">NielsCool69</p>-->
+                    <div class="container-admin" style="width: 50%;">
+                        <div class="row-admin flexStart">
+                            <?php foreach($data as $databyte){?>
+                            <div class="col-admin">
+                                <div class="user-admin">
+                                    <div class="user-content-admin flexStart">
+                                        <p style='margin-right:18px;'><?php echo htmlspecialchars($databyte['name']); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
                     <form class="flexEnd" method="post" style="width: 50%;">
-                        <input name="accepted" class="accepted" type="submit"></input>
+                        <input name="accepted" type="submit">
+                            <i class="fa fa-regular fa-circle-check"></i> 
+                        </input>
                         <input name="notAccepted" class="notAccepted" type="submit"></input>
                     </form>
                 </div>
