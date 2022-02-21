@@ -41,27 +41,16 @@ mysqli_close($conn);
         <main>
             <div class="main-container b-radius">
                 <h1>Bruger anmodninger</h1>
-                <div class="flexStart">
-                    <!--<p style="width: 50%;" class="noMargin">NielsCool69</p>-->
-                    <div class="container-admin" style="width: 50%;">
-                        <div class="row-admin flexStart">
-                            <?php foreach($data as $databyte){?>
-                            <div class="col-admin">
-                                <div class="user-admin">
-                                    <div class="user-content-admin flexStart">
-                                        <p style='margin-right:18px;'><?php echo htmlspecialchars($databyte['name']); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-                        </div>
+                <?php foreach($data as $databyte){?>
+                    <div class="flexStart">
+                        <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']); ?></p>
+                        <form class="flexEnd" method="post" style="width: 50%;">
+                            <input name="accepted" class="accepted" style='margin-right:18px;' type="submit"></input>
+                            <input name="notAccepted" class="notAccepted" type="submit"></input>
+                        </form>
                     </div>
-                    <form class="flexEnd" method="post" style="width: 50%;">
-                      <input name="notAccepted" class="notAccepted" type="submit"></input>
-                        <input name="accepted" class="accepted" type="submit"></input>
-                    </form>
-                </div>
-                <hr>
+                    <hr>
+                <?php } ?>
                 <?php
                     if(array_key_exists('accepted', $_POST)) {
                         accepted();
