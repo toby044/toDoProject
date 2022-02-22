@@ -38,7 +38,7 @@
     } 
 ?>
 
-<div class="login-form">
+<div class="register-form">
     <form action="" name="submit" method="POST">
         <p>
             <label>Brugernavn</label>
