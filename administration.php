@@ -45,19 +45,21 @@ mysqli_close($conn);
                     <div class="flexStart">
                         <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']); ?></p>
                         <form class="flexEnd" method="post" style="width: 50%;">
-                            <input name="accepted" class="accepted" style='margin-right:18px;' type="submit"></input>
+                            <input name="accepted" class="accepted" type="submit" style='margin-right:18px;'></input>
                             <input name="notAccepted" class="notAccepted" type="submit"></input>
                         </form>
                     </div>
                     <hr>
+                    <?php
+                        if(array_key_exists('accepted', $_POST)) {
+                            accepted();
+                        }
+                        else if(array_key_exists('notAccepted', $_POST)) {
+                            notAccepted();
+                        }
+                    ?>
                 <?php } ?>
                 <?php
-                    if(array_key_exists('accepted', $_POST)) {
-                        accepted();
-                    }
-                    else if(array_key_exists('notAccepted', $_POST)) {
-                        notAccepted();
-                    }
                     function accepted() {
                         echo "<div class='flexStart'>
                                 <img src='images/arrow_side_up.png' alt='Arrow' style='margin-right:18px;'>
