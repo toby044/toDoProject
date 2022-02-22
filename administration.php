@@ -10,13 +10,13 @@ $result = mysqli_query($conn, $sql);
 
 // Fetch resultater
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
+/*
 // Frisæt resultat fra hukommelsen
 mysqli_free_result($result);
 
 // Luk forbindelse
 mysqli_close($conn);
-
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,42 +41,55 @@ mysqli_close($conn);
         <main>
             <div class="main-container b-radius">
                 <h1>Bruger anmodninger</h1>
-                <?php foreach($data as $databyte){?>
+                <?php 
+                    $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
+                    $result = mysqli_query($conn, $query);
+                    /*while ($row = mysqli_fetch_array($result)){*/
+                    foreach($data as $databyte){
+                ?>
                     <div class="flexStart">
-                        <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']); ?></p>
-                        <form class="flexEnd" method="post" style="width: 50%;">
-                            <input name="accepted" class="accepted" type="submit" style='margin-right:18px;'></input>
-                            <input name="notAccepted" class="notAccepted" type="submit"></input>
+                        <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']);?></p>
+                        <form action="administration.php" method="post" class="flexEnd" style="width: 50%;">
+                            <input type="hidden" name="id" value="<?php echo $databyte['id'];?>">
+                            <input value="Accepted" name="accepted" class="accepted" style='margin-right:18px;' type="submit"></input>
+                            <input value="Not_accepted" name="notAccepted" class="notAccepted" type="submit"></input>
                         </form>
                     </div>
                     <hr>
-                    <?php
-                        if(array_key_exists('accepted', $_POST)) {
-                            accepted();
-                        }
-                        else if(array_key_exists('notAccepted', $_POST)) {
-                            notAccepted();
-                        }
-                    ?>
                 <?php } ?>
                 <?php
-                    function accepted() {
-                        echo "<div class='flexStart'>
-                                <img src='images/arrow_side_up.png' alt='Arrow' style='margin-right:18px;'>
-                                <p>Accepteret</p>
-                            </div>";
+                    if(isset($_POST['accepted'])) {
+                        $id = $_POST['id'];
+
+                        $select = "UPDATE users SET status = 'approved' WHERE id = '$id'";
+                        $result = mysqli_query($conn, $select);
+
+                        echo "<p>Du har accepteret:</p>";  
+                        echo $databyte['name'];
                         echo "<hr>";
                     }
-                    function notAccepted() {
-                        echo "<div class='flexStart'>
-                                <img src='images/arrow_side_up.png' alt='Arrow' style='margin-right:18px;'>
-                                <p>Ikke accepteret</p>
-                            </div>";
+                    if(isset($_POST['notAccepted'])) {
+                        $id = $_POST['id'];
+
+                        $select = "DELETE FROM users WHERE id = '$id'";
+                        $result = mysqli_query($conn, $select);
+
+                        echo "<p>Du har ikke accepteret:</p>";  
+                        echo $databyte['name'];
                         echo "<hr>";
                     }
                 ?>
             </div>
         </main>
 </body>
+
+<!-- Fra møde med Niels
+<div class="flexEnd" style="width: 50%;">
+    <?php /*
+        printf('<a href="x.php?id=%s"><input name="accepted" class="accepted" type="submit" style="margin-right:18px;"></input></a>', $databyte['name']); 
+        printf('<a href="y.php?id=%s"><input name="notAccepted" class="notAccepted" type="submit"></input></a>', $databyte['name']); 
+    */ ?>
+</div>
+-->
 
 </html>
