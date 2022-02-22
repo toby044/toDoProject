@@ -44,15 +44,14 @@ mysqli_close($conn);
                 <?php 
                     $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
                     $result = mysqli_query($conn, $query);
-                    /*while ($row = mysqli_fetch_array($result)){*/
                     foreach($data as $databyte){
                 ?>
                     <div class="flexStart">
                         <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']);?></p>
                         <form action="administration.php" method="post" class="flexEnd" style="width: 50%;">
-                            <input type="hidden" name="id" value="<?php echo $databyte['id'];?>">
-                            <input value="Accepted" name="accepted" class="accepted" style='margin-right:18px;' type="submit"></input>
-                            <input value="Not_accepted" name="notAccepted" class="notAccepted" type="submit"></input>
+                            <input type="hidden" name="id" value="<?php echo $databyte['id'];?>"></input>
+                            <input name="accepted" class="accepted" type="submit" style='margin-right:18px;'></input>
+                            <input name="notAccepted" class="notAccepted" type="submit"></input>
                         </form>
                     </div>
                     <hr>
@@ -64,8 +63,10 @@ mysqli_close($conn);
                         $select = "UPDATE users SET status = 'approved' WHERE id = '$id'";
                         $result = mysqli_query($conn, $select);
 
-                        echo "<p>Du har accepteret:</p>";  
-                        echo $databyte['name'];
+                        echo "<div class='flexStart'>
+                                <input name='accepted' class='accepted' type='submit' style='margin-right:18px;'></input>
+                                <p>Bruger accepteret</p>
+                            </div>";
                         echo "<hr>";
                     }
                     if(isset($_POST['notAccepted'])) {
@@ -74,8 +75,10 @@ mysqli_close($conn);
                         $select = "DELETE FROM users WHERE id = '$id'";
                         $result = mysqli_query($conn, $select);
 
-                        echo "<p>Du har ikke accepteret:</p>";  
-                        echo $databyte['name'];
+                        echo "<div class='flexStart'>
+                                <input name='notAccepted' class='notAccepted' type='submit' style='margin-right:18px;'></input>
+                                <p>Bruger ikke accepteret</p>
+                            </div>";
                         echo "<hr>";
                     }
                 ?>
