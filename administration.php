@@ -10,13 +10,13 @@ $result = mysqli_query($conn, $sql);
 
 // Fetch resultater
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
+/*
 // Frisæt resultat fra hukommelsen
 mysqli_free_result($result);
 
 // Luk forbindelse
 mysqli_close($conn);
-
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,36 +41,43 @@ mysqli_close($conn);
         <main>
             <div class="main-container b-radius">
                 <h1>Bruger anmodninger</h1>
-                <?php foreach($data as $databyte){?>
+                <?php 
+                    $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
+                    $result = mysqli_query($conn, $query);
+                    foreach($data as $databyte){
+                ?>
                     <div class="flexStart">
-                        <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']); ?></p>
-                        <form class="flexEnd" method="post" style="width: 50%;">
+                        <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']);?></p>
+                        <form action="administration.php" method="post" class="flexEnd" style="width: 50%;">
+                            <input type="hidden" name="id" value="<?php echo $databyte['id'];?>"></input>
                             <input name="accepted" class="accepted" type="submit" style='margin-right:18px;'></input>
                             <input name="notAccepted" class="notAccepted" type="submit"></input>
                         </form>
                     </div>
                     <hr>
-                    <?php
-                        if(array_key_exists('accepted', $_POST)) {
-                            accepted();
-                        }
-                        else if(array_key_exists('notAccepted', $_POST)) {
-                            notAccepted();
-                        }
-                    ?>
                 <?php } ?>
                 <?php
-                    function accepted() {
+                    if(isset($_POST['accepted'])) {
+                        $id = $_POST['id'];
+
+                        $select = "UPDATE users SET status = 'approved' WHERE id = '$id'";
+                        $result = mysqli_query($conn, $select);
+
                         echo "<div class='flexStart'>
-                                <img src='images/arrow_side_up.png' alt='Arrow' style='margin-right:18px;'>
-                                <p>Accepteret</p>
+                                <input name='accepted' class='accepted' type='submit' style='margin-right:18px;'></input>
+                                <p>Bruger accepteret</p>
                             </div>";
                         echo "<hr>";
                     }
-                    function notAccepted() {
+                    if(isset($_POST['notAccepted'])) {
+                        $id = $_POST['id'];
+
+                        $select = "DELETE FROM users WHERE id = '$id'";
+                        $result = mysqli_query($conn, $select);
+
                         echo "<div class='flexStart'>
-                                <img src='images/arrow_side_up.png' alt='Arrow' style='margin-right:18px;'>
-                                <p>Ikke accepteret</p>
+                                <input name='notAccepted' class='notAccepted' type='submit' style='margin-right:18px;'></input>
+                                <p>Bruger ikke accepteret</p>
                             </div>";
                         echo "<hr>";
                     }
@@ -78,5 +85,14 @@ mysqli_close($conn);
             </div>
         </main>
 </body>
+
+<!-- Fra møde med Niels
+<div class="flexEnd" style="width: 50%;">
+    <?php /*
+        printf('<a href="x.php?id=%s"><input name="accepted" class="accepted" type="submit" style="margin-right:18px;"></input></a>', $databyte['name']); 
+        printf('<a href="y.php?id=%s"><input name="notAccepted" class="notAccepted" type="submit"></input></a>', $databyte['name']); 
+    */ ?>
+</div>
+-->
 
 </html>
