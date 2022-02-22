@@ -20,7 +20,7 @@ include('../db_conn.php');
         // Sætter cookie, som vi vil læse på og genere content med sql
         if($count == 1){
             header("Location: ../index.php");
-            setcookie('uname',$username, time() + 86400, '/');
+            setcookie('uname',$username, time() + 60 * 60 * 24 * 30  , '/');
         }
         
     }

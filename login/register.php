@@ -31,7 +31,7 @@
         // Gem i databasen
         if(mysqli_query($conn,$sql)){
             // Ved succes gå til index med logged in detaljer
-            header('Location: ../index.php');
+            header('Location: login.php');
         } else {
             echo 'query error: ' . mysqli_error($conn);
         }
@@ -42,11 +42,11 @@
     <form action="" name="submit" method="POST">
         <p>
             <label>Brugernavn</label>
-            <input type="text" name="username" placeholder="Skal udfyldes">
+            <input type="text" name="username" placeholder="Skal udfyldes" required>
         </p>
         <p>
             <label>Password</label>
-            <input type="password" name="password" placeholder="Skal udfyldes">
+            <input type="password" name="password" placeholder="Skal udfyldes" required>
         </p>
         <input type="submit" name="submit" value="Registrer" />
     </form>

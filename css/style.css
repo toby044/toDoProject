@@ -49,14 +49,14 @@ a:hover {
 h2 {
   font-size: 2.3em;
   margin: 0;
-  transition: transform 0.2s ease-in;
 }
 
 .header-link {
   font-weight: bold;
+  transition: transform 0.2s ease-in;
 }
 
-h2:hover {
+.header-link:hover {
   transform: translateX(5px);
 }
 
@@ -278,10 +278,7 @@ body {
   color: var(--light-grey) !important;
 }
 
-.error {
-}
-
-/*Sophies*/
+/* Admin styling */
 
 h3 {
   color: white;
@@ -331,4 +328,5 @@ h3 {
   font-size: 0;
   padding: 18px;
   cursor: pointer;
+  margin-right: 10px;
 }
