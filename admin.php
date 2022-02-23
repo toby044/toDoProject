@@ -43,7 +43,7 @@ mysqli_close($conn);
             <h1>Bruger anmodninger</h1>
             <?php 
                 $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
-                //$result = mysqli_query($conn, $query);
+                $result = mysqli_query($conn, $query);
                 foreach($data as $databyte){
             ?>
                 <div class="flexStart">
@@ -51,17 +51,18 @@ mysqli_close($conn);
                     <form action="admin.php" method="post" class="flexEnd" style="width: 50%;">
                         <input type="hidden" name="id" value="<?php echo $databyte['id'];?>"></input>
                         <input name="notAccepted" class="notAccepted" type="submit"></input>
-                        <input name="accepted" class="accepted" type="submit"></input>
+                        <!-- <input name="accepted" class="accepted" type="submit"></input> -->
                     </form>
                 </div>
                 <hr>
             <?php } ?>
             <?php
+            /*
                 if(isset($_POST['accepted'])) {
                     $id = $_POST['id'];
 
                     $select = "UPDATE users SET status = 'approved' WHERE id = '$id'";
-                    //$result = mysqli_query($conn, $select);
+                    $result = mysqli_query($conn, $select);
 
                     echo "<div class='flexStart'>
                             <input name='accepted' class='accepted' type='submit' style='margin-right:18px;'></input>
@@ -69,6 +70,7 @@ mysqli_close($conn);
                         </div>";
                     echo "<hr>";
                 }
+            */
                 if(isset($_POST['notAccepted'])) {
                     $id = $_POST['id'];
 

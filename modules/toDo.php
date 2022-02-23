@@ -1,14 +1,11 @@
 <?php
 require 'db_conn.php';
-$sql = "SELECT * FROM todos ORDER BY id DESC";
+$userid = $_COOKIE['userid'];
+$sql = "SELECT * FROM todos WHERE user_id = '$userid'";
+
+
 
 $result = $conn->query($sql);
-
-// BUGFIXING
-// Det er ikke redirecten
-// Den skal IKKE være nede i bunden
-// Den skal IKKE være inde i midten af generation loop
-// 
 
 foreach ($result as $check) {
   if (isset($_POST['check'])) {
@@ -30,6 +27,8 @@ foreach ($result as $check) {
 <div class="todo-add-section">
   <form action="add-todo.php" method="POST" autocomplete="off">
   <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>  
+    <input type="hidden"
+           name="user_id">
     <input id="todo-input-text"
                 type="text" 
                 name="title" 

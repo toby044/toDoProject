@@ -1,8 +1,8 @@
 <?php
 
 require './db_conn.php';
-
-$sql = "SELECT * FROM todos ORDER BY id DESC";
+$userid = $_COOKIE['userid'];
+$sql = "SELECT * FROM todos WHERE user_id = '$userid'";
 
 $result = $conn->query($sql);
 

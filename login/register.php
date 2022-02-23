@@ -33,13 +33,12 @@
         // Gem i databasen
         if(mysqli_query($conn,$sql)){
             // Ved succes gå til index med logged in detaljer
-            header('Location: login.php');
+            header('Location: ../index.php');
         } else {
             echo 'query error: ' . mysqli_error($conn);
         }
     } 
 
-    $anton = 1234;
 ?>
 
 <div class="register-form">

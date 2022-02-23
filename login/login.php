@@ -13,19 +13,24 @@
         // Set variables for post username and password 
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql = "SELECT * FROM users WHERE name ='$username' && password='$password'";
-
+        $sql = "SELECT * FROM users WHERE name ='$username' && password ='$password'";
         
         // Lav query med sql sætningen
         $qry = mysqli_query($conn, $sql);
+        $arr = $qry -> fetch_array(MYSQLI_NUM);
+        $userid = $arr[0];
+
         $count = mysqli_num_rows($qry);
 
         // Sætter cookie, som vi vil læse på og genere content med sql
-        if($count == 1){if($username == 'admin') {
+        if($count == 1){
+            if($username == 'admin') {
                 header("Location: ./admin.php");   
             } else {
                 header("Location: ./");
                 setcookie('uname' , $username , time() + 60 * 60 * 24 * 30 , '/');
+                setcookie('userid' , $userid , time() + 60 * 60 * 24 * 30 , '/');
+
             }
             // if (password_verify($password, $pass)) {
             //     echo 'Rigtigt password';
