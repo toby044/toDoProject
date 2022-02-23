@@ -31,59 +31,59 @@ mysqli_close($conn);
 </head>
 
 <body>
-        <aside>
-            <div class="flex-down">
-                <h2>To Do</h2>
-                <h3>Administrator</h3>
-            </div>
-            <a href="modules/logout.php" class="logoutBtn">Log ud</a>
-        </aside>
-        <main>
-            <div class="main-container b-radius">
-                <h1>Bruger anmodninger</h1>
-                <?php 
-                    $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
-                    //$result = mysqli_query($conn, $query);
-                    foreach($data as $databyte){
-                ?>
-                    <div class="flexStart">
-                        <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']);?></p>
-                        <form action="admin.php" method="post" class="flexEnd" style="width: 50%;">
-                            <input type="hidden" name="id" value="<?php echo $databyte['id'];?>"></input>
-                            <input name="notAccepted" class="notAccepted" type="submit"></input>
-                            <input name="accepted" class="accepted" type="submit" style='margin-right:18px;'></input>
-                        </form>
-                    </div>
-                    <hr>
-                <?php } ?>
-                <?php
-                    if(isset($_POST['accepted'])) {
-                        $id = $_POST['id'];
+    <aside>
+        <div class="flex-down">
+            <h2>To Do</h2>
+            <h3>Administrator</h3>
+        </div>
+        <a href="modules/logout.php" class="logoutBtn">Log ud</a>
+    </aside>
+    <main>
+        <div class="main-container b-radius">
+            <h1>Bruger anmodninger</h1>
+            <?php 
+                $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
+                //$result = mysqli_query($conn, $query);
+                foreach($data as $databyte){
+            ?>
+                <div class="flexStart">
+                    <p style='width: 50%;'><?php echo htmlspecialchars($databyte['name']);?></p>
+                    <form action="admin.php" method="post" class="flexEnd" style="width: 50%;">
+                        <input type="hidden" name="id" value="<?php echo $databyte['id'];?>"></input>
+                        <input name="notAccepted" class="notAccepted" type="submit"></input>
+                        <input name="accepted" class="accepted" type="submit"></input>
+                    </form>
+                </div>
+                <hr>
+            <?php } ?>
+            <?php
+                if(isset($_POST['accepted'])) {
+                    $id = $_POST['id'];
 
-                        $select = "UPDATE users SET status = 'approved' WHERE id = '$id'";
-                        //$result = mysqli_query($conn, $select);
+                    $select = "UPDATE users SET status = 'approved' WHERE id = '$id'";
+                    //$result = mysqli_query($conn, $select);
 
-                        echo "<div class='flexStart'>
-                                <input name='accepted' class='accepted' type='submit' style='margin-right:18px;'></input>
-                                <p>Bruger accepteret</p>
-                            </div>";
-                        echo "<hr>";
-                    }
-                    if(isset($_POST['notAccepted'])) {
-                        $id = $_POST['id'];
+                    echo "<div class='flexStart'>
+                            <input name='accepted' class='accepted' type='submit' style='margin-right:18px;'></input>
+                            <p>Bruger accepteret</p>
+                        </div>";
+                    echo "<hr>";
+                }
+                if(isset($_POST['notAccepted'])) {
+                    $id = $_POST['id'];
 
-                        $select = "DELETE FROM users WHERE id = '$id'";
-                        $result = mysqli_query($conn, $select);
+                    $select = "DELETE FROM users WHERE id = '$id'";
+                    $result = mysqli_query($conn, $select);
 
-                        echo "<div class='flexStart'>
-                                <input name='notAccepted' class='notAccepted' type='submit' style='margin-right:18px;'></input>
-                                <p>Bruger ikke accepteret</p>
-                            </div>";
-                        echo "<hr>";
-                    }
-                ?>
-            </div>
-        </main>
+                    echo "<div class='flexStart'>
+                            <input name='notAccepted' class='notAccepted' type='submit' style='margin-right:18px;'></input>
+                            <p>Bruger ikke accepteret</p>
+                        </div>";
+                    echo "<hr>";
+                }
+            ?>
+        </div>
+    </main>
 </body>
 
 <!-- Fra møde med Niels

@@ -18,12 +18,14 @@
         } else {
             $password = $_POST['password'];
         }
-
+        
         // Slut POST check
-
+        
         // lav variabler 
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
+        
+        // $pass = password_hash($password, PASSWORD_BCRYPT);
 
          // lav sql
         $sql = "INSERT INTO users(name, password) VALUES('$username','$password')"; 
@@ -36,6 +38,8 @@
             echo 'query error: ' . mysqli_error($conn);
         }
     } 
+
+    $anton = 1234;
 ?>
 
 <div class="register-form">

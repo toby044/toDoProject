@@ -110,6 +110,11 @@ body {
   min-width: 870px;
 }
 
+/** To Do User Greeting Styling */
+.greeting{
+  color: var(--grey);
+}
+
 /** To Do Add Styling */
 .todo-add-section {
   padding: 1.5rem 0 0.5rem 1rem;
@@ -329,4 +334,10 @@ h3 {
   padding: 18px;
   cursor: pointer;
   margin-right: 10px;
+}
+
+
+/* Login */
+#signup-btn {
+  color: var(--grey);
 }

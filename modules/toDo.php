@@ -4,7 +4,28 @@ $sql = "SELECT * FROM todos ORDER BY id DESC";
 
 $result = $conn->query($sql);
 
+// BUGFIXING
+// Det er ikke redirecten
+// Den skal IKKE være nede i bunden
+// Den skal IKKE være inde i midten af generation loop
+// 
+
+foreach ($result as $check) {
+  if (isset($_POST['check'])) {
+    $check = 1;
+    $id = $_POST['id'];
+    $sql = "UPDATE todos SET checked=$check WHERE id = '$id'";
+    mysqli_query($conn, $sql);
+    header('Location: index.php');
+  }
+}
+
 ?>
+
+<div class="user-greeting">
+  <h1 class="greeting">Hvad skal vi lave i dag <?php echo $_COOKIE['uname']; ?>?</h1>
+</div>
+
 
 <div class="todo-add-section">
   <form action="add-todo.php" method="POST" autocomplete="off">
@@ -34,8 +55,6 @@ $result = $conn->query($sql);
 </div>
 
 
-
-
 <div class="todos-section">
   <?php foreach($result as $todo) { ?>
     <?php if (!$todo['checked']) { ?>
@@ -43,11 +62,20 @@ $result = $conn->query($sql);
         <div class="wrapper">
           <div class="wrapper-inner">
             <label class="todo-checkbox-container">
-              <input type="checkbox" name="check">
+              <form action="index.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $todo['id'];?>">
+                <input type="submit" name="check">
+              </form>
               <span class="todo-checkmark b-radius"></span>
             </label>
             <h2 class="todo-title"><?php echo $todo['title']; ?></h2>
-            <small class="todo-date"><?php echo $todo['date_time']; ?></small>
+            <small class= "todo-date">
+              <?php 
+                $timestamp = $todo['date_time'];
+                $expireDate = strtotime('+7days', strtotime($timestamp));
+                echo 'Oprettet: ' . date('d-m-Y H:i:s', strtotime($timestamp)) . '<br/>' . 'Deadline: ' . date('d-m-Y H:i:s', $expireDate); 
+              ?>
+            </small>
             <div class="dropdown-arrow">
               <i class="fa fa-solid fa-chevron-down font-size"></i>
             </div>
@@ -58,13 +86,9 @@ $result = $conn->query($sql);
               <i class="fa fa-solid fa-box-archive"></i>
             </div>
           </div>
-        <?php } ?>
+        </div>
       </div>
-    </div>
+    <?php } ?>
   <?php } ?>
 </div>
-
-
-
-
 
