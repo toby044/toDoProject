@@ -40,10 +40,10 @@ mysqli_close($conn);
     </aside>
     <main>
         <div class="main-container b-radius">
-            <h1>Bruger anmodninger</h1>
+            <h1>Brugerlisten</h1>
             <?php 
                 $query = "SELECT * FROM users WHERE status = 'pending' ORDER BY id ASC";
-                $result = mysqli_query($conn, $query);
+                // $result = mysqli_query($conn, $query);
                 foreach($data as $databyte){
             ?>
                 <div class="flexStart">

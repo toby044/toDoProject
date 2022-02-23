@@ -76,7 +76,7 @@ foreach ($result as $check) {
               ?>
             </small>
             <div class="dropdown-arrow">
-              <i class="fa fa-solid fa-chevron-down font-size"></i>
+              <a href="#<?php echo $todo['id']; ?>"><i class="fa fa-solid fa-chevron-down font-size"></i></a>
             </div>
           </div>
           <div class="wrapper-inner-2">

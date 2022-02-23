@@ -35,16 +35,12 @@ a {
   font-size: 1em;
   padding-top: 5%;
   font-weight: normal;
-}
-
-a:active {
-  font-weight: bold;
-  font-size: 1.1em;
+  transition: all .2s ease-in-out;
 }
 
 a:hover {
-  font-weight: bold;
-}
+  transform:scale(1.1);
+} 
 
 h2 {
   font-size: 2.3em;
@@ -103,16 +99,15 @@ body {
 }
 
 .main-container {
-  width: 80% !important;
+  max-width: 80% !important;
   background-color: var(--white);
   padding: 2rem 4rem;
   margin: 2rem !important;
   box-shadow: 0px 5px 5px 0px var(--grey);
-  min-width: 870px;
 }
 
 /** To Do User Greeting Styling */
-.greeting{
+.greeting {
   color: var(--grey);
 }
 
@@ -173,10 +168,16 @@ body {
   gap: 5rem;
   padding: 1rem;
   border: 1px solid var(--grey);
-  /* height: 76px; */
+  height: 76px;
   overflow: hidden;
-  transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-out;
 }
+
+.todo-item:target {
+  height: auto;
+  transition: height 0.5s ease-out;
+}
+
 .todo-title {
   color: var(--grey);
 }
@@ -336,8 +337,56 @@ h3 {
   cursor: pointer;
 }
 
-
 /* Login */
-#signup-btn {
+.signup-btn {
+  color: var(--bg-main);
+  font-size: 14px;
+  align-self: center;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-title{
+  align-self: flex-start;
+  margin-bottom: 2rem;
+}
+
+.login-form form{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.login-form label{
   color: var(--grey);
 }
+
+.login-form input{
+  margin-bottom: 1rem;
+  margin-top: .5rem;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: .2rem .2rem .2rem 0;
+}
+
+.submitBtn { 
+  color: var(--white);
+  background-color: var(--bg-main);
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  align-self: center;
+  cursor:pointer;
+  border: 3px solid #5495A4;
+  border-radius: 0.5em;
+  transition: border .2s ease-in-out;
+}
+
+.submitBtn:hover{
+  border: 3px solid #84CADA;
+}
+
+
