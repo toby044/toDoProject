@@ -35,12 +35,12 @@ a {
   font-size: 1em;
   padding-top: 5%;
   font-weight: normal;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 a:hover {
-  transform:scale(1.1);
-} 
+  transform: scale(1.1);
+}
 
 h2 {
   font-size: 2.3em;
@@ -272,6 +272,7 @@ body {
 }
 
 .todo-archive {
+  display: none;
   padding: 0.2rem;
   align-self: flex-end;
 }
@@ -349,44 +350,42 @@ h3 {
   flex-direction: column;
 }
 
-.login-title{
+.login-title {
   align-self: flex-start;
   margin-bottom: 2rem;
 }
 
-.login-form form{
+.login-form form {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 }
 
-.login-form label{
+.login-form label {
   color: var(--grey);
 }
 
-.login-form input{
+.login-form input {
   margin-bottom: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   border: none;
   border-bottom: 1px solid black;
-  padding: .2rem .2rem .2rem 0;
+  padding: 0.2rem 0.2rem 0.2rem 0;
 }
 
-.submitBtn { 
+.submitBtn {
   color: var(--white);
   background-color: var(--bg-main);
   padding: 1rem 2rem;
   outline: none;
   border: none;
   align-self: center;
-  cursor:pointer;
-  border: 3px solid #5495A4;
+  cursor: pointer;
+  border: 3px solid #5495a4;
   border-radius: 0.5em;
-  transition: border .2s ease-in-out;
+  transition: border 0.2s ease-in-out;
 }
 
-.submitBtn:hover{
-  border: 3px solid #84CADA;
+.submitBtn:hover {
+  border: 3px solid #84cada;
 }
-
-
